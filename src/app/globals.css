@@ -70,7 +70,8 @@
     * {
       @apply border-border;
     }
+    /* Fix this later */
     body {
-      @apply bg-background text-foreground;
+      @apply bg-black text-white;
     }
   }
