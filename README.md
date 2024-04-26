@@ -1,6 +1,6 @@
 ## TODOS:
 
 -[x] Import json form zip 
--[] Scafold basic ui
+-[x] Scafold basic ui
 -[] Add filtering and sorting
--[] Test for bugs and write a good readme.
+-[] Test for responsive bugs and write a good readme.
