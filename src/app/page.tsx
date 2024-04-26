@@ -12,11 +12,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import movies from "@/data/dummyData.json";
-import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { toast } from "sonner";
+
+//TODO: Check for responsive issues and wirte the readme
 
 export default function Home() {
   //! Filter out movies with empty 'moviemainphotos' array
@@ -73,9 +75,12 @@ export default function Home() {
         <Link href="/" className="text-4xl font-semibold">
           Movies
         </Link>
-        <h5>
-          Created by <span>github link</span>
-        </h5>
+        <div className="inline-flex items-center gap-1">
+          Crafted with ❤️ by
+          <a href="https://github.com/frustrated0180" target="_blank" className="inline-flex items-center hover:underline hover:font-semibold">
+            Niloy Das <ArrowTopRightIcon className="size-5" />
+          </a>
+        </div>
       </nav>
 
       {/* Filter section */}
