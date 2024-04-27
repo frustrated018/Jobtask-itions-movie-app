@@ -19,7 +19,7 @@ import { FormEvent, useState } from "react";
 import { toast } from "sonner";
 
 export default function Home() {
-  //! Filter out movies with empty 'moviemainphotos' array
+  //! Filter out movies with empty img array
   const filteredMovies = movies.filter(
     (movie) => movie.moviemainphotos.length > 0
   );
@@ -27,8 +27,6 @@ export default function Home() {
   //! Search system
   const [category, setCategory] = useState("");
   const [finishedMovies, setFinishedMovies] = useState(filteredMovies);
-
-  //! Search system
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,8 +66,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Filter section */}
-
       <h4 className="text-center pt-5 text-lg md:text-xl">
         Select the categroy for the search. Click the cards to see the movie
         details.
