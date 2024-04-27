@@ -18,8 +18,6 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { toast } from "sonner";
 
-//TODO: Check for responsive issues and wirte the readme
-
 export default function Home() {
   //! Filter out movies with empty 'moviemainphotos' array
   const filteredMovies = movies.filter(
@@ -71,7 +69,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Navbar */}
-      <nav className="flex justify-between items-center p-3.5 border-b">
+      <nav className="flex flex-col md:flex-row justify-between items-center p-5 border-b">
         <Link href="/" className="text-4xl font-semibold">
           Movies
         </Link>
@@ -85,11 +83,11 @@ export default function Home() {
 
       {/* Filter section */}
 
-      <h4 className="text-center pt-5 text-xl">
+      <h4 className="text-center pt-5 text-lg md:text-xl">
         Select the categroy for the search. Click the cards to see the movie
         details.
       </h4>
-      <section className="flex justify-center items-center gap-10 px-5 py-5 w-full">
+      <section className="flex flex-col md:flex-row justify-center items-center gap-5 md:gap-10 px-5 py-5 w-full">
         <div>
           <Select onValueChange={setCategory}>
             <SelectTrigger className="w-[180px]">
@@ -158,7 +156,7 @@ export default function Home() {
                 </DialogTrigger>
 
                 <DialogContent className="bg-black max-w-4xl">
-                  <section className="grid grid-cols-2 my-5">
+                  <section className="grid grid-cols-1 lg:grid-cols-2 my-5 gap-5">
                     <div className="flex justify-center items-center">
                       <div className="relative w-[300px] h-[500px]">
                         <Image
