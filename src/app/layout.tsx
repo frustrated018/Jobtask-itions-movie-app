@@ -28,7 +28,7 @@ export default function RootLayout({
         <div className="inline-flex items-center gap-1">
           Crafted with ❤️ by
           <a
-            href="https://github.com/frustrated0180"
+            href="https://github.com/frustrated018"
             target="_blank"
             className="inline-flex items-center hover:underline hover:font-semibold"
           >
