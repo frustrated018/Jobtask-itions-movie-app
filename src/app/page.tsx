@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Select,
   SelectContent,
@@ -12,9 +13,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import movies from "@/data/dummyData.json";
-import { ArrowTopRightIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
-import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { toast } from "sonner";
 
@@ -68,19 +68,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      {/* Navbar */}
-      <nav className="flex flex-col md:flex-row justify-between items-center p-5 border-b">
-        <Link href="/" className="text-4xl font-semibold">
-          Movies
-        </Link>
-        <div className="inline-flex items-center gap-1">
-          Crafted with ❤️ by
-          <a href="https://github.com/frustrated0180" target="_blank" className="inline-flex items-center hover:underline hover:font-semibold">
-            Niloy Das <ArrowTopRightIcon className="size-5" />
-          </a>
-        </div>
-      </nav>
-
       {/* Filter section */}
 
       <h4 className="text-center pt-5 text-lg md:text-xl">
@@ -155,61 +142,65 @@ export default function Home() {
                   </Card>
                 </DialogTrigger>
 
-                <DialogContent className="bg-black max-w-4xl">
-                  <section className="grid grid-cols-1 lg:grid-cols-2 my-5 gap-5">
-                    <div className="flex justify-center items-center">
-                      <div className="relative w-[300px] h-[500px]">
-                        <Image
-                          alt="Movie poster"
-                          src={movie?.moviemainphotos[0]}
-                          className="object-cover"
-                          fill
-                        />
+                <DialogContent className=" max-w-[80vw] mx-auto lg:max-w-4xl ">
+                  <ScrollArea className="h-[90vh]">
+                    <section className="grid grid-cols-1 md:grid-cols-2 my-5 xl:my-14 gap-5">
+                      <div className="flex justify-center items-center">
+                        <div className="relative w-[300px] h-[500px]">
+                          <Image
+                            alt="Movie poster"
+                            src={movie?.moviemainphotos[0]}
+                            className="object-cover"
+                            fill
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="flow-root rounded-lg border border-gray-100 py-3 shadow-sm bg-secondary">
-                      <dl className="-my-3 divide-y divide-gray-100 text-sm">
-                        <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                          <dt className="font-medium">Title</dt>
-                          <dd className="sm:col-span-2">{movie.movietitle}</dd>
-                        </div>
+                      <div className="flow-root rounded-lg border border-gray-100 py-3 shadow-sm bg-secondary">
+                        <dl className="-my-3 divide-y divide-gray-100 text-sm">
+                          <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                            <dt className="font-medium">Title</dt>
+                            <dd className="sm:col-span-2">
+                              {movie.movietitle}
+                            </dd>
+                          </div>
 
-                        <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                          <dt className="font-medium">Available Language</dt>
-                          <dd className="sm:col-span-2">
-                            <div className="flex gap-2 flex-wrap">
-                              {movie.movielanguages.map((lang) => (
-                                <p key={lang}>{lang},</p>
-                              ))}
-                            </div>
-                          </dd>
-                        </div>
+                          <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                            <dt className="font-medium">Available Language</dt>
+                            <dd className="sm:col-span-2">
+                              <div className="flex gap-2 flex-wrap">
+                                {movie.movielanguages.map((lang) => (
+                                  <p key={lang}>{lang},</p>
+                                ))}
+                              </div>
+                            </dd>
+                          </div>
 
-                        <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                          <dt className="font-medium">Available Country</dt>
-                          <dd className="sm:col-span-2">
-                            <div className="flex gap-2 flex-wrap">
-                              {movie.moviecountries.map((country) => (
-                                <p key={country}>{country},</p>
-                              ))}
-                            </div>
-                          </dd>
-                        </div>
+                          <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                            <dt className="font-medium">Available Country</dt>
+                            <dd className="sm:col-span-2">
+                              <div className="flex gap-2 flex-wrap">
+                                {movie.moviecountries.map((country) => (
+                                  <p key={country}>{country},</p>
+                                ))}
+                              </div>
+                            </dd>
+                          </div>
 
-                        <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-                          <dt className="font-medium">Genre</dt>
-                          <dd className="sm:col-span-2">
-                            <div className="flex gap-2 flex-wrap">
-                              {movie.moviegenres.map((genre) => (
-                                <p key={genre}>{genre},</p>
-                              ))}
-                            </div>
-                          </dd>
-                        </div>
-                      </dl>
-                    </div>
-                  </section>
+                          <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+                            <dt className="font-medium">Genre</dt>
+                            <dd className="sm:col-span-2">
+                              <div className="flex gap-2 flex-wrap">
+                                {movie.moviegenres.map((genre) => (
+                                  <p key={genre}>{genre},</p>
+                                ))}
+                              </div>
+                            </dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </section>
+                  </ScrollArea>
                 </DialogContent>
               </Dialog>
             </div>

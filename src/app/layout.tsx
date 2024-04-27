@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import Link from "next/link";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +20,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} dark`}>
+         {/* Navbar */}
+      <nav className="flex flex-col md:flex-row justify-between items-center p-5 border-b">
+        <Link href="/" className="text-4xl font-semibold">
+          Movies
+        </Link>
+        <div className="inline-flex items-center gap-1">
+          Crafted with ❤️ by
+          <a
+            href="https://github.com/frustrated0180"
+            target="_blank"
+            className="inline-flex items-center hover:underline hover:font-semibold"
+          >
+            Niloy Das <ArrowTopRightIcon className="size-5" />
+          </a>
+        </div>
+      </nav>
         {children}
         <Toaster richColors duration={3500} position="top-right" />
       </body>
